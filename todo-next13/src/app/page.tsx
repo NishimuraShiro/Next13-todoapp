@@ -1,4 +1,5 @@
 import AddTask from "./components/AddTask";
+import TodoList from "./components/TodoList";
 
 export default function Home() {
   return (
@@ -6,6 +7,7 @@ export default function Home() {
       <h1 className="text-4xl font-bold">Hello nextjs</h1>
       <div>
         <AddTask />
+        <TodoList />
       </div>
     </main>
   );
