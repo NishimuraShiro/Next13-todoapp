@@ -1,14 +1,14 @@
-import { Task } from "@/types";
 import React from "react";
+import { Task } from "../types/tasks";
 
-interface TodoProps {
-  todo: Task;
+interface TaskProps {
+  task: Task;
 }
 
-const Todo = ({ todo }: TodoProps) => {
+const Todo = ({ task }: TaskProps) => {
   return (
-    <li key={todo.id} className="flex justify-between p-4">
-      <span>{todo.text}</span>
+    <li key={task.id} className="flex justify-between p-4">
+      <span>{task.text}</span>
       <div>
         <button className="px-2">編集</button>
         <button className="px-2">削除</button>
@@ -16,5 +16,4 @@ const Todo = ({ todo }: TodoProps) => {
     </li>
   );
 };
-
 export default Todo;
