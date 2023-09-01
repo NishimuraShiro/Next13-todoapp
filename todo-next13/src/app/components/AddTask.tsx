@@ -8,7 +8,7 @@ const AddTask = () => {
   const [taskTitle, setTaskTitle] = useState("");
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    await addTodo({ id: "4", text: taskTitle });
+    await addTodo({ id: uuidv4(), text: taskTitle });
     setTaskTitle("");
   };
   return (
