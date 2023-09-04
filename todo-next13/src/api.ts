@@ -23,3 +23,15 @@ export const addTodo = async (todo: Task): Promise<Task> => {
   const newTodo = await res.json();
   return newTodo;
 };
+
+export const editTodo = async (id: string, newText: string): Promise<Task> => {
+  const res = await fetch(`http://localhost:3001/tasks/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json", // headersで指定するコンテンツの型
+    },
+    body: JSON.stringify({ text: newText }), // 追加する内容
+  });
+  const updatedTodo = await res.json();
+  return updatedTodo;
+};
