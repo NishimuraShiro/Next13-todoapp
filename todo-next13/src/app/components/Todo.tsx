@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Task } from "../types/tasks";
+import { editTodo } from "@/api";
 
 interface TaskProps {
   task: Task;
@@ -14,6 +15,8 @@ const Todo = ({ task }: TaskProps) => {
     setIsEditing(true);
   };
   const handleSave = async () => {
+    // API連携部分
+    await editTodo(task.id, editedTaskTitle);
     setIsEditing(false);
   };
   return (
