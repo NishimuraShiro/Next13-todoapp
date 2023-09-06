@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Task } from "../types/tasks";
 import { editTodo } from "@/api";
 
@@ -9,6 +9,8 @@ interface TaskProps {
 }
 
 const Todo = ({ task }: TaskProps) => {
+  const ref = useRef<HTMLInputElement>(null);
+
   const [isEditing, setIsEditing] = useState(false);
   const [editedTaskTitle, setEditedTaskTitle] = useState(task.text);
   const handleEdit = async () => {
@@ -19,10 +21,16 @@ const Todo = ({ task }: TaskProps) => {
     await editTodo(task.id, editedTaskTitle);
     setIsEditing(false);
   };
+  useEffect(() => {
+    if (isEditing) {
+      ref.current?.focus();
+    }
+  }, [isEditing]);
   return (
     <li key={task.id} className="flex justify-between p-4">
       {isEditing ? (
         <input
+          ref={ref}
           type="text"
           value={editedTaskTitle}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
