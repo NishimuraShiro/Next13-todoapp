@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Task } from "../types/tasks";
-import { editTodo } from "@/api";
+import { deleteTodo, editTodo } from "@/api";
 
 interface TaskProps {
   task: Task;
@@ -20,6 +20,10 @@ const Todo = ({ task }: TaskProps) => {
     // API連携部分
     await editTodo(task.id, editedTaskTitle);
     setIsEditing(false);
+  };
+  const handleDelete = async () => {
+    // API連携部分
+    await deleteTodo(task.id);
   };
   useEffect(() => {
     if (isEditing) {
@@ -51,7 +55,9 @@ const Todo = ({ task }: TaskProps) => {
           </button>
         )}
 
-        <button className="px-2">削除</button>
+        <button className="px-2" onClick={handleDelete}>
+          削除
+        </button>
       </div>
     </li>
   );
