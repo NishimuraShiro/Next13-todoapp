@@ -35,4 +35,4 @@ yarn-error.log*
 next-env.d.ts
 
 # json-server
-/src/app/data/todos.json
+/todo-next13/src/app/data/todos.json
