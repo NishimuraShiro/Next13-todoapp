@@ -15,6 +15,7 @@ export default async function Home() {
         <TodoList tasks={tasks} />
         <h1>test</h1>
         <h2>テスト</h2>
+        <h3>テスト</h3>
       </div>
     </main>
   );
