@@ -37,7 +37,7 @@ const Todo = ({ task }: TaskProps) => {
           ref={ref}
           type="text"
           value={editedTaskTitle}
-          {/* 以下のonChangeイベントを入れてあげることで、入力ができるようになる。 */}
+          /* onChangeイベントを入れてあげることで、入力ができるようになる。 */
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setEditedTaskTitle(e.target.value)
           }
